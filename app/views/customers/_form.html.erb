@@ -1,0 +1,14 @@
+<div class="container d-grid p-3">
+  <%= simple_form_for @customer do |form| %>
+    <div class="d-flex gap-3">
+      <%= form.input :name %>
+      <%= form.input :dob, html5:true %>
+    </div>
+    <%= form.input :mobile_phone %>
+    <%= form.input :email %>
+    <div class="d-flex justify-content-between align-items-center">
+      <%= form.button :button, class: "btn-primary" %>
+      <%= link_to 'Voltar', customers_path, class: "link" %>
+    </div>
+  <% end %>
+</div>
