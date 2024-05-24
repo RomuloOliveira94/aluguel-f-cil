@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  before_action :authenticate_user!
   before_action :load_customer, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -23,7 +24,6 @@ class CustomersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -35,7 +35,6 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    @customer = Customer.find(params[:id])
     if @customer.destroy
       redirect_to customers_path, notice: "Customer deleted successfully"
     else

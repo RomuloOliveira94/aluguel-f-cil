@@ -7,3 +7,7 @@
 <div class="d-grid gap-2 p-3 container">
   <%= render @customers  %>
 </div>
+
+<% if user_signed_in? %>
+  <%= button_to "Sair", destroy_user_session_path, method: :delete %>
+<% end %>
