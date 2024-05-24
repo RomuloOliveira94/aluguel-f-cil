@@ -7,7 +7,7 @@
     <%= form.input :mobile_phone %>
     <%= form.input :email %>
     <div class="d-flex justify-content-between align-items-center">
-      <%= form.button :button, class: "btn-primary" %>
+      <%= form.button :button, @customer.new_record? ? 'Criar Cliente' : 'Atualizar Cliente', class: "btn-primary" %>
       <%= link_to 'Voltar', customers_path, class: "link" %>
     </div>
   <% end %>
