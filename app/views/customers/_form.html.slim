@@ -1,8 +1,8 @@
 div class="container d-grid p-3"
   = simple_form_for @customer do |form| 
-    div class="d-flex gap-2"
-      = form.input :name, class: "w-100"
-      = form.input :dob, html5:true 
+    div class="d-flex justify-content-between align-items-center"
+      = form.input :name, class: "flex-grow-1" 
+      = form.input :dob, html5:true
       
     = form.input :mobile_phone 
     = form.input :email 
