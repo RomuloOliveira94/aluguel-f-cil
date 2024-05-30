@@ -1,0 +1,16 @@
+div class="card"
+  div class="card-body"
+    div class="d-flex gap-2 w-100"
+      span class="flex-grow-1 fw-bold" Nome:
+      span #{equipament.name}
+    
+    div class="d-flex gap-2 w-100"
+      span class="flex-grow-1 fw-bold" Número de série:
+      span #{equipament.serial_number}
+
+  div class="card-footer d-flex gap-1"
+      = link_to 'Editar', edit_equipament_path(equipament), class: "btn btn-info"  
+      - unless current_page?(equipament_path(equipament)) 
+        = link_to 'Ver', equipament_path(equipament), class: "btn btn-success"  
+      = link_to "Deletar", equipament_path(equipament), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" 
+  
