@@ -13,8 +13,10 @@ div class="card"
       span #{customer.mobile_phone}
 
   div class="card-footer d-flex gap-1"
-      = link_to 'Editar', edit_customer_path(customer), class: "btn btn-info"  
+      - if policy(Customer).update? 
+        = link_to 'Editar', edit_customer_path(customer), class: "btn btn-info"  
       - unless current_page?(customer_path(customer)) 
-        = link_to 'Ver', customer_path(customer), class: "btn btn-success"  
-      = link_to "Deletar", customer_path(customer), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" 
+        = link_to 'Ver', customer_path(customer), class: "btn btn-success" 
+      - if policy(Customer).destroy?   
+        = link_to "Deletar", customer_path(customer), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" 
   
