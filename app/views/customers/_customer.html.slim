@@ -2,15 +2,15 @@ div class="card"
   div class="card-body"
     div class="d-flex gap-2 w-100"
       span class="flex-grow-1 fw-bold" Nome:
-      span = customer.name
+      span #{customer.name}
     
     div class="d-flex gap-2 w-100"
       span class="flex-grow-1 fw-bold" Email:
-      span = customer.email
+      span #{customer.email}
     
     div class="d-flex gap-2 w-100"
       span class="flex-grow-1 fw-bold" Telefone:
-      span = customer.mobile_phone
+      span #{customer.mobile_phone}
 
   div class="card-footer d-flex gap-1"
       = link_to 'Editar', edit_customer_path(customer), class: "btn btn-info"  
