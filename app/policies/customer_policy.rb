@@ -7,6 +7,10 @@ class CustomerPolicy < ApplicationPolicy
     user.admin?
   end
 
+  def destroy?
+    user.admin?
+  end
+
   class Scope < ApplicationPolicy::Scope
   end
 end
