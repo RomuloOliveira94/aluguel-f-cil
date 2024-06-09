@@ -72,3 +72,5 @@ gem "slim"
 gem "slim-rails"
 
 gem "pundit", "~> 2.3"
+
+gem "ransack", "~> 4.1"

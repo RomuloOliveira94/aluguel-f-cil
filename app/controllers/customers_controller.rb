@@ -7,6 +7,11 @@ class CustomersController < ApplicationController
     authorize @customers
   end
 
+  def search
+    @q = Customer.ransack(params[:q])
+    @customers = @q.result(distinct: true)
+  end
+
   def show
     authorize @customer
   end
