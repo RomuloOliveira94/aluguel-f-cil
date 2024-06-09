@@ -7,6 +7,13 @@ class EquipamentsController < ApplicationController
     authorize @equipaments
   end
 
+  def search
+    @q = Equipament.ransack(name_cont: params[:q])
+    @equipaments = @q.result(distinct: true)
+
+    render layout: false
+  end
+
   def show
     authorize @equipament
   end

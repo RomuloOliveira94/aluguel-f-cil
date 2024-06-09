@@ -9,4 +9,8 @@ class Equipament < ApplicationRecord
       id: left_outer_joins(:schedules).where("(schedules.period_start, schedules.period_end) OVERLAPS (?, ?)", period_start, period_end).where.not(status: 'done')
     )
   end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[name]
+  end
 end
