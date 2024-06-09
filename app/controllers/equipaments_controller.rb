@@ -8,7 +8,15 @@ class EquipamentsController < ApplicationController
   end
 
   def search
-    @q = Equipament.ransack(name_cont: params[:q])
+    period_start = params[:period_start]&.presence
+    period_end = params[:period_end]&.presence
+
+    @q = if period_start && period_end
+           Equipament.availables(period_start, period_end).ransack(name_cont: params[:q])
+         else
+           Equipament.none
+         end
+
     @equipaments = @q.result(distinct: true)
 
     render layout: false
