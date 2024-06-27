@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-Br" data-bs-theme="dark">
+<html data-controller="theme-toggle" data-theme-toggle-target="theme" lang="pt-Br" data-bs-theme>
   <head>
     <title>Aluguel Fácil</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -23,17 +23,12 @@
   </body>
 
   <script>
-    /* const sidebarToggle = document.querySelector("#sidebar-toggle");
-      sidebarToggle.addEventListener("click",function(){
-      document.querySelector("#sidebar").classList.toggle("collapsed");
-    }); */
-
-    document.querySelector(".theme-toggle").addEventListener("click",() => {
+    /* document.querySelector(".theme-toggle").addEventListener("click",() => {
       toggleLocalStorage();
       toggleRootClass();
-    });
+    }); */
 
-    function toggleRootClass(){
+    /* function toggleRootClass(){
       const current = document.documentElement.getAttribute('data-bs-theme');
       const inverted = current == 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-bs-theme',inverted);
@@ -53,6 +48,6 @@
 
     if(isLight()){
       toggleRootClass();
-    }
+    } */
   </script>
 </html>

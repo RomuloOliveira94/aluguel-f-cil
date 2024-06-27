@@ -12,3 +12,6 @@ application.register("order-equipament", OrderEquipamentController)
 
 import SidenavToggleController from "./sidenav_toggle_controller"
 application.register("sidenav-toggle", SidenavToggleController)
+
+import ThemeToggleController from "./theme_toggle_controller"
+application.register("theme-toggle", ThemeToggleController)
