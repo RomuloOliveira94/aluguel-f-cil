@@ -1,21 +1,20 @@
 div class="container d-grid p-3"
   = simple_form_for @order do |form| 
     div class="my-4"
-      = form.input :equipament_id, required: true do 
-        div data-controller="order-equipament" data-order-equipament-url-value="/equipaments/search" role="combobox"
+      div data-controller="order-equipament" data-order-equipament-url-value="/equipaments/search" role="combobox"
+        div class="row"
+          div class="col-12 col-md-6"
+            = form.input :period_start, required: true, html5: true, label: "Data de início", input_html: { class: "form-control", data: { order_equipament_target: "periodStart" }}
+          div class="col-12 col-md-6"
+            = form.input :period_end, required: true, html5: true, label: "Data de término", input_html: { class: "form-control",data: { order_equipament_target: "periodEnd" } }
+        = form.input :equipament_id, label: "Equipamento", required: true do 
           input type="text" class="form-control" data-order-equipament-target="input" value="#{@order&.equipament&.name}"
           = form.input_field :equipament_id, as: :hidden, data: { order_equipament_target: "hidden" }
           ul class="list-group" data-order-equipament-target="results"
           = form.full_error :equipament, class: "text-danger mt-2"
-
-          div class="row"
-            div class="col-12 col-md-6"
-              = form.input :period_start, required: true, html5: true, label: "Data de início", input_html: { class: "form-control", data: { order_equipament_target: "periodStart" }}
-            div class="col-12 col-md-6"
-              = form.input :period_end, required: true, html5: true, label: "Data de término", input_html: { class: "form-control",data: { order_equipament_target: "periodEnd" } }
           
 
-      = form.input :customer_id, required: true do
+      = form.input :customer_id, label: "Cliente", required: true do
         div data-controller="autocomplete" data-autocomplete-url-value="/customers/search" role="combobox"
           input type="text" class="form-control" data-autocomplete-target="input" value="#{@order&.customer&.name}"
           = form.input_field :customer_id, as: :hidden, data: { autocomplete_target: "hidden" }
