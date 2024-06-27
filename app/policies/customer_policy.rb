@@ -11,6 +11,10 @@ class CustomerPolicy < ApplicationPolicy
     user.admin?
   end
 
+  def show_modal_footer?
+    user.admin?
+  end
+
   class Scope < ApplicationPolicy::Scope
   end
 end
