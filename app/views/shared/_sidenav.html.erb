@@ -41,22 +41,22 @@
                     </li>
                 </ul>
             </li>
-            <li class="sidebar-item">
-                <% if policy(Equipament).index? %>                   
-                    <a href="#" class="sidebar-link collapsed" data-bs-target="#equipaments" data-bs-toggle="collapse"
-                        aria-expanded="false"><i class="fa-regular fa-user pe-2"></i>
-                        Equipamentos
-                    </a>
-                <% end %>
-                <ul id="equipaments" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                    <li class="sidebar-item">
-                        <%= link_to "Equipamentos", equipaments_path, class: "sidebar-link" %>
-                    </li>
-                    <li class="sidebar-item">
-                        <%= link_to "Novo Equipamento", new_equipament_path, class: "sidebar-link" %>
-                    </li>
-                </ul>
-            </li>
+            <% if policy(Equipament).index? %>                   
+                <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#equipaments" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-regular fa-user pe-2"></i>
+                            Equipamentos
+                        </a>
+                    <ul id="equipaments" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <%= link_to "Equipamentos", equipaments_path, class: "sidebar-link" %>
+                        </li>
+                        <li class="sidebar-item">
+                            <%= link_to "Novo Equipamento", new_equipament_path, class: "sidebar-link" %>
+                        </li>
+                    </ul>
+                </li>
+            <% end %>
             <li class="sidebar-item">
                 <%= link_to "Sair", destroy_user_session_path, class: "sidebar-link", data: { turbo_method: :delete,
                 turbo_confirm: "Tem certeza?",
