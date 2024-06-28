@@ -8,7 +8,4 @@ div class="container"
   
   div class="d-grid gap-2"
     = render @customers 
-  
-  - if user_signed_in? 
-    div class="d-flex justify-content-end mt-3"
-      = button_to "Sair", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-md" 
+   

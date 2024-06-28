@@ -1,6 +1,7 @@
-div class="container d-grid p-3"
+div class="container d-grid"
+  h3 = @order.new_record? ? 'Cadastrar Equipamento' : 'Atualizar Equipamento'
   = simple_form_for @order do |form| 
-    div class="my-4"
+    div
       div data-controller="order-equipament" data-order-equipament-url-value="/equipaments/search" role="combobox"
         div class="row"
           div class="col-12 col-md-6"
@@ -21,7 +22,7 @@ div class="container d-grid p-3"
           ul class="list-group" data-autocomplete-target="results"
           = form.full_error :customer, class: "text-danger mt-2"            
 
-    div class="d-flex justify-content-between align-items-center"
+    div class="d-flex justify-content-between align-items-center mt-3"
        = form.button :button, @order.new_record? ? 'Criar Equipamento' : 'Atualizar Equipamento', class: "btn-primary" 
        = link_to 'Voltar', orders_path, class: "link" 
   

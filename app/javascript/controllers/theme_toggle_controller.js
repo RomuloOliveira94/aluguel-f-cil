@@ -1,18 +1,16 @@
 import { Controller } from "@hotwired/stimulus";
-import { useIntersection } from "stimulus-use";
+import { useIntersection, useVisibility } from "stimulus-use";
 
 // Connects to data-controller="theme-toggle"
 export default class extends Controller {
   static targets = ["theme"];
 
   connect() {
-    useIntersection(this);
+    useVisibility(this);
   }
 
-  appear() {
-    if (this.atLeastOneVisible()) {
-      this.themeTarget.dataset.bsTheme = localStorage.getItem("theme");
-    }
+  visible() {
+    this.themeTarget.dataset.bsTheme = localStorage.getItem("theme");
   }
 
   toggle() {
