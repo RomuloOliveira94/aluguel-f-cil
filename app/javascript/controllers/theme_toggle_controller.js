@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import { useIntersection, useVisibility } from "stimulus-use";
+import { useMutation, useVisibility } from "stimulus-use";
 
 // Connects to data-controller="theme-toggle"
 export default class extends Controller {

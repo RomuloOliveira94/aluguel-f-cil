@@ -7,10 +7,17 @@ class Equipament < ApplicationRecord
     period_end ||= Date.new(2099, 12, 31)
 
     where.not(
-      id: left_outer_joins(:schedules).where('(schedules.period_start, schedules.period_end) OVERLAPS (?, ?)', period_start, period_end).where(schedules: { status: %w[pending in_progress] }))
+      id: left_outer_joins(:schedules).where('(schedules.period_start, schedules.period_end) OVERLAPS (?, ?)',
+                                             period_start, period_end).where(schedules: { status: %w[pending
+                                                                                                     in_progress] })
+    )
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[schedules orders]
   end
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[name]
+    %w[name serial_number]
   end
 end

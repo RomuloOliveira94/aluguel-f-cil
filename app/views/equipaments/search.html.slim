@@ -1,2 +1,6 @@
 - @equipaments.each do |equipament|
     li class="list-group-item" role="option" data-autocomplete-value="#{equipament.id}" #{equipament.name} - Numero de Série #{equipament.serial_number}
+    
+- if @equipaments.empty?
+    li class="list-group-item" role="option" Sem resultados para a busca 
+    

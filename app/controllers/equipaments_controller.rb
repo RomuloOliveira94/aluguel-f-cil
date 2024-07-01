@@ -12,12 +12,12 @@ class EquipamentsController < ApplicationController
     period_end = params[:period_end]&.presence
 
     @q = if period_start && period_end
-           Equipament.availables(period_start, period_end).ransack(name_cont: params[:q])
+           Equipament.availables(period_start, period_end).ransack(name_or_serial_number_cont: params[:q])
          else
-           Equipament.none
+           Equipament.ransack(params[:q])
          end
 
-    @equipaments = @q.result(distinct: true)
+    @equipaments = @q.result
 
     render layout: false
   end
