@@ -3,20 +3,18 @@ import { useIntersection, useVisibility } from "stimulus-use";
 
 // Connects to data-controller="theme-toggle"
 export default class extends Controller {
-  static targets = ["theme"];
-
   connect() {
     useVisibility(this);
   }
 
   visible() {
-    this.themeTarget.dataset.bsTheme = localStorage.getItem("theme");
+    this.element.dataset.bsTheme = localStorage.getItem("theme");
   }
 
   toggle() {
-    const theme = this.themeTarget.dataset.bsTheme;
+    const theme = this.element.dataset.bsTheme;
     const newTheme = theme === "dark" ? "light" : "dark";
-    this.themeTarget.dataset.bsTheme = newTheme;
+    this.element.dataset.bsTheme = newTheme;
 
     localStorage.setItem("theme", newTheme);
   }

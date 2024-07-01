@@ -2,16 +2,16 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { application } from "./application";
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import Autocomplete from "stimulus-autocomplete";
+application.register("autocomplete", Autocomplete);
 
-import OrderEquipamentController from "./order_equipament_controller"
-application.register("order-equipament", OrderEquipamentController)
+import OrderEquipamentController from "./order_equipament_controller";
+application.register("order-equipament", OrderEquipamentController);
 
-import SidenavToggleController from "./sidenav_toggle_controller"
-application.register("sidenav-toggle", SidenavToggleController)
+import SidenavToggleController from "./sidenav_toggle_controller";
+application.register("sidenav-toggle", SidenavToggleController);
 
-import ThemeToggleController from "./theme_toggle_controller"
-application.register("theme-toggle", ThemeToggleController)
+import ThemeToggleController from "./theme_toggle_controller";
+application.register("theme-toggle", ThemeToggleController);
