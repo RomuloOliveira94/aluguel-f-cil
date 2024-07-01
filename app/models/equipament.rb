@@ -1,6 +1,7 @@
 class Equipament < ApplicationRecord
   has_rich_text :description
   has_many :schedules
+  has_many :orders
 
   def self.availables(period_start, period_end)
     period_end ||= Date.new(2099, 12, 31)

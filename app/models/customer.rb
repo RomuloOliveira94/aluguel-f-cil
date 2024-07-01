@@ -5,6 +5,6 @@ class Customer < ApplicationRecord
   validates :mobile_phone, presence: true
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[name]
+    %w[name email dob mobile_phone]
   end
 end

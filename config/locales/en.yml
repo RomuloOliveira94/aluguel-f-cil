@@ -29,3 +29,8 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      order:
+        period_start: "Data de início"
+        period_end: "Data de término"
