@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :load_order, only: %i[update_status]
 
   def index
     @orders = Order.order(created_at: :desc)
@@ -18,9 +19,18 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update_status
+    @order.update(order_params)
+    @order.schedule.update(status: order_params[:status])
+  end
+
   private
 
+  def load_order
+    @order = Order.find(params[:id])
+  end
+
   def order_params
-    params.require(:order).permit(:customer_id, :equipament_id, :period_start, :period_end)
+    params.require(:order).permit(:customer_id, :equipament_id, :period_start, :period_end, :status, :id)
   end
 end

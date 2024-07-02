@@ -14,6 +14,12 @@ div class="card"
 
     div class="d-flex gap-2 w-100"
       span class="flex-grow-1 fw-bold" Data de término:
-      span #{order.period_end}  
-  
+      span #{order.period_end} 
+
+    div class="d-flex gap-2 w-100"
+      span class="flex-grow-1 fw-bold" Data de término:
+      div data-controller="update-order-select" data-update-order-select-url-value="/orders/#{order.id}/update_status" data-update-order-select-id-value="#{order.id}"
+        = form_with model: order, remote: true do |form| 
+          = form.select :status, [["Pendente", "pending"], ["Em Andamento", "in_progress"], ["Finalizado", "done"]], {}, { data: { action: "change->update-order-select#updateStatus" } } 
+      
   

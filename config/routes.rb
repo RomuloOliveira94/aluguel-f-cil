@@ -13,7 +13,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders
+  resources :orders do
+    member do
+      patch :update_status
+    end
+  end
 
   get 'up' => 'rails/health#show', as: :rails_health_check
 
